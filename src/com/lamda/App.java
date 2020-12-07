@@ -10,3 +10,4 @@ public class App {
         lam.demo();
     }
 }
+//We need to have functional interface if we want to use lambda expression
