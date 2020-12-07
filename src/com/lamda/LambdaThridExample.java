@@ -22,11 +22,11 @@ class Data{
 }
 public class LambdaThridExample {
     public static void main(String[] args){
-        List<Data> list = new ArrayList<>();
-        list.add(new Data("Utsav "));
-        list.add(new Data("Jaya "));
-        list.add(new Data("Jenny "));
-        list.add(new Data("Selena "));
+        List<Names> list = new ArrayList<>();
+        list.add(new Names("Utsav "));
+        list.add(new Names("Jaya "));
+        list.add(new Names("Jenny "));
+        list.add(new Names("Selena "));
 
         /*Collections.sort(list, new Comparator<Data>() {
             @Override
@@ -36,9 +36,9 @@ public class LambdaThridExample {
         }); */
 
         //Same method using Lambda expression
-        Collections.sort(list,(Data o1, Data o2)-> o1.getName().compareTo(o2.getName()));
+        Collections.sort(list,(Names o1, Names o2)-> o1.getName().compareTo(o2.getName()));
 
-        for(Data data:list){
+        for(Names data:list){
             System.out.print(data.getName());
         }
     }
