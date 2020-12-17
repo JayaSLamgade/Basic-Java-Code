@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+
 public class Unit1Exercise {
 
     public static void main(String[] args) {
@@ -17,21 +18,29 @@ public class Unit1Exercise {
                 new Person("Arya", "Stak", 20),
                 new Person("James", "Bond", 35)
         );
-        Collections.sort(people, new Comparator<Person>() {
-            @Override
-            public int compare(Person o1, Person o2) {
-                return o1.getLastName().compareTo(o2.getLastName());
-            }
-        });
+        //Sorting list by its last name
+        Collections.sort(people, (p1, p2)-> p1.getLastName().compareTo(p2.getLastName()));
 
-        printAll(people);
-
+        System.out.println("Information: ");
+        //print all the information
+        printConditionally(people, p -> true);
+        System.out.println("******************************************************");
+        System.out.println("Print last name start with S");
+        //printing names who's last name starts with S
+        printConditionally(people, p -> p.getLastName().startsWith("S"));
 
     }
 
-    private static void printAll(List<Person> people){
+
+     private static void printConditionally(List<Person> people, Condition condition) {
         for (Person p: people) {
-            System.out.println(p);
+            if (condition.test(p)){
+                System.out.println(p);
+            }
+
         }
     }
 }
+interface Condition{
+    boolean test(Person p);
+        }
